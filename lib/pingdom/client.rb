@@ -13,8 +13,6 @@ module Pingdom
       @connection = Faraday::Connection.new(:url => "https://api/pingdom.com/api/2.0/") do |builder|
         builder.url_prefix = "https://api.pingdom.com/api/2.0"
         
-        builder.adapter :logger, @options[:logger]
-        
         builder.adapter @options[:http_driver]
         
         # builder.use Gzip # TODO: write GZip response handler, add Accept-Encoding: gzip header
